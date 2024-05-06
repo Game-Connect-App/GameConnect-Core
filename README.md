@@ -1,29 +1,100 @@
-# Create T3 App
+# GameConnect Core
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+[![Quality Gate Status](http://146.190.150.93:9000/api/project_badges/measure?project=game-connect&metric=alert_status&token=sqb_444d47b12078e0727034ab6fab9967281f31939f)](http://146.190.150.93:9000/dashboard?id=game-connect)
 
-## What's next? How do I make an app with this?
+This project is the core of the GameConnect platform, a social network for gamers. It provides a platform for gamers to connect, share, and play games together. The platform is designed to be user-friendly, secure, and scalable, making it suitable for both casual and competitive gamers. This project is a mono-repo that contains the core backend and frontend components of the GameConnect platform, using the `T3-Stack`.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+This project is built on the [T3 Stack](https://create.t3.gg/) and is bootstrapped with `create-t3-app`. It integrates multiple cutting-edge technologies including Drizzle ORM for database interactions, Next.js for server-side rendering, NextAuth for authentication, and much more. This setup is designed to be scalable and efficient, making it suitable for both development and production environments.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+## Technologies Used
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+- **[Next.js](https://nextjs.org)** - The React framework for production.
+- **[NextAuth.js](https://next-auth.js.org)** - For secure authentication.
+- **[Drizzle ORM](https://orm.drizzle.team)** - An ORM for managing database entities.
+- **[Tailwind CSS](https://tailwindcss.com)** - For utility-first CSS.
+- **[tRPC](https://trpc.io)** - End-to-end typesafe APIs made easy.
+- **[Ansible](https://www.ansible.com/)** - For automating deployment and configuration.
+- **[SonarQube](https://www.sonarqube.org/)** - For continuous inspection of code quality.
+- **[PostgreSQL](https://www.postgresql.org/)** - As the underlying database system.
 
-## Learn More
+## Local Development Setup
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+1. **Clone the repository:**
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+   ```bash
+   git clone https://github.com/Youngermaster/T3-Stack-Shadcn-UI.git
+   cd T3-Stack-Shadcn-UI
+   ```
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+2. **Install dependencies:**
 
-## How do I deploy this?
+   ```bash
+   pnpm install
+   ```
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+3. **Setup the environment:**
+   Copy the `.env.example` file to `.env` and update the environment variables to match your setup:
+
+   ```bash
+   cp .env.example .env
+   ```
+
+4. **Start the local development database:**
+
+   ```bash
+   ./start-database.sh
+   ```
+
+5. **Run the development server:**
+
+   ```bash
+   pnpm dev
+   ```
+
+   Visit `http://localhost:3000` to view the application.
+
+## Database Management
+
+- **Migrate and push changes to the database:**
+
+  ```bash
+  pnpm db:push
+  ```
+
+- **Open Drizzle Studio to manage the database interactively:**
+
+  ```bash
+  pnpm db:studio
+  ```
+
+## Code Quality with SonarQube
+
+Run SonarQube analysis to ensure high code quality:
+
+```bash
+./sonar_scanner.sh
+```
+
+Ensure SonarQube is running locally or adjust `SONARQUBE_URL` in your `.env` to point to your SonarQube server.
+
+## Deployment
+
+The application can be deployed using Docker. See the `docker-compose.yml` file for Docker configuration details. Use the following command to build and run the Docker environment:
+
+```bash
+docker-compose up --build
+```
+
+## Contributing
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Need Help?
+
+If you have any questions or need help, please open an issue.
